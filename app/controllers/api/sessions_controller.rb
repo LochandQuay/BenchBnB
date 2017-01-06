@@ -11,8 +11,7 @@ class Api::SessionsController < ApplicationController
       login(@user)
       redirect_to root
     else
-      flash[:errors] = ["Invalid credentials"], status: 401
-      render :new
+      render json: ["Invalid credentials"], status: 401
     end
   end
 
@@ -21,7 +20,7 @@ class Api::SessionsController < ApplicationController
     if @user.destroy
       render {}
     else
-      render json: @user.errors.full_messages, status: 404
+      render json: ["No one is signed in"], status: 404
     end
   end
 end

@@ -9,8 +9,7 @@ class Api::UsersController < ApplicationController
       login(@user)
       redirect_to root
     else
-      flash[:errors] = @user.errors.full_messages, status: 422
-      render :new
+      render json: @user.errors.full_messages, status: 422
     end
   end
 end
