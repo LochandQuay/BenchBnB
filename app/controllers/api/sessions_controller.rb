@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
-      redirect_to 'api/users/show'
+      render 'api/users/show'
     else
       render json: ["Invalid credentials"], status: 401
     end
