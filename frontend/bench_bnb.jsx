@@ -4,5 +4,5 @@ import ReactDOM from 'react-dom';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
-  ReactDOM.render(<h1>Welcome to BenchBnB</h1>, document.getElementById("root"));
-})
+  ReactDOM.render(<h1>Welcome to BenchBnB</h1>, document.getElementById('root'));
+});

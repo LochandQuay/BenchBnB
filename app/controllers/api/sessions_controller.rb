@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
-      redirect_to root
+      redirect_to 'api/users/show'
     else
       render json: ["Invalid credentials"], status: 401
     end
@@ -17,8 +17,9 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     @user = current_user
-    if @user.destroy
-      render {}
+    if @user
+      logout
+      render 'api/users/show'
     else
       render json: ["No one is signed in"], status: 404
     end
